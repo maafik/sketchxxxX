@@ -496,29 +496,66 @@
   </footer>
 
   <!-- Order Modal -->
-  <div class="order-modal" id="orderModal">
-    <div class="order-modal__dialog">
-      <button class="order-modal__close" type="button" aria-label="Закрыть">✕</button>
-      <div class="order-modal__title">Создадим твой уникальный тату-эскиз вместе</div>
-      <div class="order-modal__text">
-        Напиши мне прямо сейчас, и я разработаю авторский эскиз под твой стиль и место на теле.
-        2 правки бесплатно, готово за 48 часов. Твоя идея — мой дизайн!
-      </div>
-      <div class="order-modal__actions">
-        <a class="order-modal__btn order-modal__btn--tg" href="#" onclick="openTelegramModal(); return false;">
-          <span class="order-modal__btn-content">
-            <span class="order-modal__btn-main">Telegram</span>
-            <span class="order-modal__btn-sub">работает с VPN</span>
-          </span>
-        </a>
-        <a class="order-modal__btn order-modal__btn--vk" href="https://vk.me/tattoo_sketchs1" target="_blank" rel="noopener">ВКонтакте</a>
-                    <a class="order-modal__btn order-modal__btn--tg" href="#" onclick="openWhatsAppModal(); return false;">
-          <span class="order-modal__btn-content">
-            <span class="order-modal__btn-main">WhatsApp</span>
-            <span class="order-modal__btn-sub">работает с VPN</span>
-          </span>
-        </a>
-      </div>
+<div class="order-modal" id="orderModal">
+  <div class="order-modal__dialog">
+    <button class="order-modal__close" type="button" aria-label="Закрыть">✕</button>
+
+    <div class="order-modal__title">
+      Создадим твой уникальный тату-эскиз вместе
+    </div>
+
+    <div class="order-modal__text">
+      Напиши мне прямо сейчас, и я разработаю авторский эскиз под твой стиль и место на теле.
+      2 правки бесплатно, готово за 48 часов. Твоя идея — мой дизайн!
+    </div>
+
+    <div class="order-modal__actions">
+
+      <!-- Telegram -->
+      <a class="order-modal__btn order-modal__btn--tg"
+         href="#"
+         onclick="openTelegramModal(); return false;">
+        <span class="order-modal__btn-content">
+          <span class="order-modal__btn-main">Telegram</span>
+          <span class="order-modal__btn-sub">работает с VPN</span>
+        </span>
+      </a>
+
+      <!-- VK -->
+<a class="order-modal__btn order-modal__btn--vk"
+   href="https://vk.me/tattoo_sketchs1"
+   target="_blank"
+   rel="noopener">
+  <span class="order-modal__btn-content">
+    <span class="order-modal__btn-main">Вконтакте</span>
+    <span class="order-modal__btn-sub">Без VPN</span>
+  </span>
+</a>
+
+      <!-- WhatsApp -->
+      <a class="order-modal__btn order-modal__btn--tg"
+         href="#"
+         onclick="openWhatsAppModal(); return false;">
+        <span class="order-modal__btn-content">
+          <span class="order-modal__btn-main">WhatsApp</span>
+          <span class="order-modal__btn-sub">работает с VPN</span>
+        </span>
+      </a>
+
+      <!-- MAX -->
+<a class="order-modal__btn order-modal__btn--max"
+   href="https://max.ru/u/f9LHodD0cOKFTOiDTiyeETaoW0tU1m-Z9Y6-FG8W3-4ZgeaolF8IkPWE2fU"
+   target="_blank"
+   rel="noopener">
+  <span class="order-modal__btn-content">
+    <span class="order-modal__btn-main">MAX</span>
+    <span class="order-modal__btn-sub">Без VPN</span>
+  </span>
+</a>
+
+      </a>
+
+    </div>
 
       <div class="order-carousel">
         <span class="order-carousel__label">Откроется в новом окне</span>

@@ -299,6 +299,24 @@ body {
   color: #fff;
 }
 
+.order-modal__btn--max {
+    position: relative;
+    padding-left: 58px;
+}
+
+.order-modal__btn--max::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ffffff url("/icons/Max_logo.svg") center center / 18px 18px no-repeat;
+    flex-shrink: 0;
+}
+
 .order-modal__btn-content {
   display: flex;
   flex-direction: column;
