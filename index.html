@@ -503,6 +503,19 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
   <div class="order-modal__dialog">
     <button class="order-modal__close" type="button" aria-label="Close">✕</button>
 
+    <div class="order-modal__title">
+      Let's create your unique tattoo sketch together
+    </div>
+
+    <div class="order-modal__text">
+      Message me right now, and I'll create an original sketch tailored to your style and placement.
+      2 free revisions, ready within 48 hours. Your idea — my design!
+    </div>
+
+    <div class="order-modal__scope-note">
+      Important: I draw sketches — the design itself, not the tattoo application. You'll need a tattoo artist in your city to apply it.
+    </div>
+
     <!-- Only the request form is shown in this popup -->
     <div class="order-panel active" id="orderPanelForm" role="tabpanel">
       <form class="order-form" id="orderRequestForm">
@@ -519,11 +532,79 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
 
         <button type="submit" class="order-form__submit">Send request</button>
         <p class="order-form__hint" id="orderFormHint">I'll get your request right away — one last step after that.</p>
+        <button type="button" class="order-examples-trigger" id="openExamplesBtn">
+          <i class="bi bi-images"></i> View portfolio examples
+        </button>
       </form>
     </div>
 
   </div>
 </div>
+
+  <!-- Portfolio Examples Modal -->
+  <div class="order-modal" id="examplesModal">
+    <div class="order-modal__dialog">
+      <button class="order-modal__close" type="button" aria-label="Close" id="examplesCloseBtn">✕</button>
+
+      <div class="order-modal__title">Portfolio examples</div>
+      <div class="order-modal__text">A few sketches I've made for clients.</div>
+
+      <div class="order-carousel">
+        <div class="order-carousel__viewport">
+          <div class="order-carousel__track" id="orderCarouselTrack">
+            <div class="order-carousel__item">
+              <img src="assets/123/photo_2025-07-03_23-08-54 (1).jpg" alt="Sketch 1" loading="lazy" oncontextmenu="return false;" draggable="false">
+            </div>
+            <div class="order-carousel__item">
+              <img src="assets/123/photo_2025-07-03_23-08-55 (1).jpg" alt="Sketch 2" loading="lazy" oncontextmenu="return false;" draggable="false">
+            </div>
+            <div class="order-carousel__item">
+              <img src="assets/123/photo_2025-07-03_23-08-55 (2) (1).jpg" alt="Sketch 3" loading="lazy" oncontextmenu="return false;" draggable="false">
+            </div>
+            <div class="order-carousel__item">
+              <img src="assets/123/photo_2025-07-03_23-08-55 (3) (1).jpg" alt="Sketch 4" loading="lazy" oncontextmenu="return false;" draggable="false">
+            </div>
+            <div class="order-carousel__item">
+              <img src="assets/123/photo_2025-07-03_23-08-56 (1).jpg" alt="Sketch 5" loading="lazy" oncontextmenu="return false;" draggable="false">
+            </div>
+            <div class="order-carousel__item">
+              <img src="assets/123/photo_2025-07-03_23-08-56 (2) (1).jpg" alt="Sketch 6" loading="lazy" oncontextmenu="return false;" draggable="false">
+            </div>
+            <div class="order-carousel__item">
+              <img src="assets/123/photo_2025-07-03_23-08-56 (3) (1).jpg" alt="Sketch 7" loading="lazy" oncontextmenu="return false;" draggable="false">
+            </div>
+            <div class="order-carousel__item">
+              <img src="assets/123/photo_2025-07-03_23-08-56 (4) (1).jpg" alt="Sketch 8" loading="lazy" oncontextmenu="return false;" draggable="false">
+            </div>
+          </div>
+          <div class="order-carousel__nav">
+            <button class="order-carousel__arrow order-carousel__arrow--prev" type="button" data-dir="-1">‹</button>
+            <button class="order-carousel__arrow order-carousel__arrow--next" type="button" data-dir="1">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clarify Modal: shown instead of submitting, if the idea description is too short -->
+  <div class="order-modal" id="clarifyModal">
+    <div class="order-modal__dialog order-modal__dialog--sm">
+      <button class="order-modal__close" type="button" aria-label="Close" id="clarifyCloseBtn">✕</button>
+
+      <div class="order-modal__title">Tell me a bit more</div>
+      <div class="order-modal__text">
+        So I can sketch it out right away without follow-up questions in chat, please specify:
+      </div>
+
+      <ul class="order-clarify__list">
+        <li>Style — minimalism, realism, ornamental, sketch style, etc.</li>
+        <li>Where on the body the tattoo will be</li>
+        <li>Approximate size</li>
+      </ul>
+
+      <button type="button" class="order-form__submit" id="clarifyBackBtn">Okay, I'll add more</button>
+    </div>
+  </div>
 
   <!-- Thanks Modal: shown after the request form is submitted, replaces the order modal -->
   <div class="order-modal" id="thanksModal">
@@ -596,10 +677,13 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
     (function () {
       var orderModal = document.getElementById('orderModal');
       var thanksModal = document.getElementById('thanksModal');
+      var examplesModal = document.getElementById('examplesModal');
+      var clarifyModal = document.getElementById('clarifyModal');
       if (!orderModal) return;
 
       var closeBtn = orderModal.querySelector('.order-modal__close');
       var triggers = document.querySelectorAll('.order-trigger');
+      var MIN_IDEA_LENGTH = 15;
 
       function openModal(modal) {
         modal.classList.add('open');
@@ -630,6 +714,23 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
         closeModal(thanksModal);
       }
 
+      function openExamplesModal(e) {
+        if (e) e.preventDefault();
+        if (examplesModal) openModal(examplesModal);
+      }
+
+      function closeExamplesModal() {
+        if (examplesModal) closeModal(examplesModal);
+      }
+
+      function openClarifyModal() {
+        if (clarifyModal) openModal(clarifyModal);
+      }
+
+      function closeClarifyModal() {
+        if (clarifyModal) closeModal(clarifyModal);
+      }
+
       triggers.forEach(function (t) {
         t.addEventListener('click', openOrderModal);
       });
@@ -648,9 +749,32 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
         });
       }
 
+      var openExamplesBtn = document.getElementById('openExamplesBtn');
+      if (openExamplesBtn) openExamplesBtn.addEventListener('click', openExamplesModal);
+
+      if (examplesModal) {
+        var examplesCloseBtn = document.getElementById('examplesCloseBtn');
+        if (examplesCloseBtn) examplesCloseBtn.addEventListener('click', closeExamplesModal);
+        examplesModal.addEventListener('click', function (e) {
+          if (e.target === examplesModal) closeExamplesModal();
+        });
+      }
+
+      if (clarifyModal) {
+        var clarifyCloseBtn = document.getElementById('clarifyCloseBtn');
+        var clarifyBackBtn = document.getElementById('clarifyBackBtn');
+        if (clarifyCloseBtn) clarifyCloseBtn.addEventListener('click', closeClarifyModal);
+        if (clarifyBackBtn) clarifyBackBtn.addEventListener('click', closeClarifyModal);
+        clarifyModal.addEventListener('click', function (e) {
+          if (e.target === clarifyModal) closeClarifyModal();
+        });
+      }
+
       document.addEventListener('keydown', function (e) {
         if (e.key !== 'Escape') return;
         if (thanksModal && thanksModal.classList.contains('open')) closeThanksModal();
+        else if (examplesModal && examplesModal.classList.contains('open')) closeExamplesModal();
+        else if (clarifyModal && clarifyModal.classList.contains('open')) closeClarifyModal();
         else if (orderModal.classList.contains('open')) closeOrderModal();
       });
 
@@ -699,6 +823,12 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
           var name = document.getElementById('orderName').value.trim();
           var idea = document.getElementById('orderIdea').value.trim();
           var submitBtn = form.querySelector('.order-form__submit');
+
+          // If the idea description is too short, ask for more detail instead of sending.
+          if (idea.length < MIN_IDEA_LENGTH) {
+            openClarifyModal();
+            return;
+          }
 
           var message = 'New sketch request\nName: ' + name + '\nIdea: ' + idea;
 
