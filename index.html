@@ -414,66 +414,6 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
 
     </section><!-- /Gallery Section -->
 
-    <!-- Before / After Section -->
-    <section id="before-after" class="section before-after">
-      <div class="container" data-aos="fade-up" data-aos-delay="80">
-        <div class="section-title text-center">
-          <h2>Before / After</h2>
-          <p>From client idea to finished sketch</p>
-        </div>
-
-        <div class="ba-grid">
-          <div class="ba-card">
-            <div class="ba-card__side ba-card__side--before">
-              <img src="assets/img/before-after/ba1-before.jpg" alt="Client's idea — reference" loading="lazy" draggable="false" oncontextmenu="return false;">
-              <span class="ba-card__tag">Idea</span>
-            </div>
-            <div class="ba-card__side ba-card__side--after">
-              <img src="assets/img/before-after/ba1-after.jpg" alt="Finished sketch" loading="lazy" draggable="false" oncontextmenu="return false;">
-              <span class="ba-card__tag ba-card__tag--after">Sketch</span>
-            </div>
-            <p class="ba-card__caption">Powerful dark full-back piece</p>
-          </div>
-
-          <div class="ba-card">
-            <div class="ba-card__side ba-card__side--before">
-              <img src="assets/img/before-after/ba2-before.jpg" alt="Client's idea — reference" loading="lazy" draggable="false" oncontextmenu="return false;">
-              <span class="ba-card__tag">Idea</span>
-            </div>
-            <div class="ba-card__side ba-card__side--after">
-              <img src="assets/img/before-after/ba2-after.jpg" alt="Finished sketch" loading="lazy" draggable="false" oncontextmenu="return false;">
-              <span class="ba-card__tag ba-card__tag--after">Sketch</span>
-            </div>
-            <p class="ba-card__caption">Dragon and katanas with the "warrior" kanji</p>
-          </div>
-
-          <div class="ba-card">
-            <div class="ba-card__side ba-card__side--before">
-              <img src="assets/img/before-after/ba3-before.jpg" alt="Client's idea — reference" loading="lazy" draggable="false" oncontextmenu="return false;">
-              <span class="ba-card__tag">Idea</span>
-            </div>
-            <div class="ba-card__side ba-card__side--after">
-              <img src="assets/img/before-after/ba3-after.jpg" alt="Finished sketch" loading="lazy" draggable="false" oncontextmenu="return false;">
-              <span class="ba-card__tag ba-card__tag--after">Sketch</span>
-            </div>
-            <p class="ba-card__caption">Art-clown — a detailed portrait</p>
-          </div>
-
-          <div class="ba-card">
-            <div class="ba-card__side ba-card__side--before">
-              <img src="assets/img/before-after/ba4-before.jpg" alt="Client's idea — reference" loading="lazy" draggable="false" oncontextmenu="return false;">
-              <span class="ba-card__tag">Idea</span>
-            </div>
-            <div class="ba-card__side ba-card__side--after">
-              <img src="assets/img/before-after/ba4-after.jpg" alt="Finished sketch" loading="lazy" draggable="false" oncontextmenu="return false;">
-              <span class="ba-card__tag ba-card__tag--after">Sketch</span>
-            </div>
-            <p class="ba-card__caption">Sleeve with a black panther and red accents</p>
-          </div>
-        </div>
-      </div>
-    </section><!-- /Before After Section -->
-
   </main>
 
   <footer id="footer" class="footer">
@@ -498,48 +438,65 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
 
   </footer>
 
-  <!-- Order Modal -->
-<div class="order-modal" id="orderModal">
-  <div class="order-modal__dialog">
-    <button class="order-modal__close" type="button" aria-label="Close">✕</button>
+  <!-- Info Modal: shown first, before the messenger popup -->
+  <div class="order-modal" id="infoModal">
+    <div class="order-modal__dialog order-modal__dialog--sm">
+      <button class="order-modal__close" type="button" aria-label="Close" id="infoCloseBtn">✕</button>
 
-    <div class="order-modal__title">
-      Let's create your unique tattoo sketch together
+      <div class="order-modal__title">Before you reach out</div>
+
+      <div class="order-modal__scope-note">
+        Important: I draw sketches — the design itself, not the tattoo application. You'll need a tattoo artist in your city to apply it. If you're looking to get a tattoo done, please don't reach out.
+      </div>
+
+      <button type="button" class="order-modal__dark-btn order-modal__cta-btn" id="infoContinueBtn">Got it, continue</button>
     </div>
-
-    <div class="order-modal__text">
-      Message me right now, and I'll create an original sketch tailored to your style and placement.
-      2 free revisions, ready within 48 hours. Your idea — my design!
-    </div>
-
-    <div class="order-modal__scope-note">
-      Important: I draw sketches — the design itself, not the tattoo application. You'll need a tattoo artist in your city to apply it.
-    </div>
-
-    <!-- Only the request form is shown in this popup -->
-    <div class="order-panel active" id="orderPanelForm" role="tabpanel">
-      <form class="order-form" id="orderRequestForm">
-        <div class="order-form__field">
-          <label for="orderName">Your name</label>
-          <input type="text" id="orderName" name="name" placeholder="e.g. Alex" autocomplete="name" required>
-        </div>
-
-        <div class="order-form__field">
-          <label for="orderIdea">Describe your idea</label>
-          <textarea id="orderIdea" name="idea" rows="3" placeholder="Style, placement, size..." required></textarea>
-          <p class="order-form__note">No need to attach reference photos here — just send them as your next message in the chat, once the last step opens.</p>
-        </div>
-
-        <button type="submit" class="order-form__submit">Send request</button>
-        <p class="order-form__hint" id="orderFormHint">I'll get your request right away — one last step after that.</p>
-        <button type="button" class="order-examples-trigger" id="openExamplesBtn">
-          <i class="bi bi-images"></i> View portfolio examples
-        </button>
-      </form>
-    </div>
-
   </div>
-</div>
+
+  <!-- Order Modal: messenger buttons -->
+  <div class="order-modal" id="orderModal">
+    <div class="order-modal__dialog">
+      <button class="order-modal__close" type="button" aria-label="Close">✕</button>
+
+      <div class="order-modal__title">
+        Let's create your unique tattoo sketch together
+      </div>
+
+      <div class="order-modal__text">
+        Message me right now, and I'll create an original sketch tailored to your style and placement.
+        2 free revisions, ready within 48 hours. Your idea — my design!
+      </div>
+
+      <div class="order-modal__msg-list">
+        <a class="order-modal__dark-btn order-modal__msg-btn" href="https://instagram.com/irinasketches" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+          <span class="order-modal__msg-btn-text">
+            <span class="order-modal__msg-btn-main">Instagram</span>
+            <span class="order-modal__msg-btn-sub">@irinasketches — direct message</span>
+          </span>
+        </a>
+        <a class="order-modal__dark-btn order-modal__msg-btn" href="https://m.me/irinasketches" target="_blank" rel="noopener">
+          <i class="fab fa-facebook-messenger"></i>
+          <span class="order-modal__msg-btn-text">
+            <span class="order-modal__msg-btn-main">Messenger</span>
+            <span class="order-modal__msg-btn-sub">Facebook chat</span>
+          </span>
+        </a>
+        <a class="order-modal__dark-btn order-modal__msg-btn" href="mailto:sidelnikovairina002@gmail.com">
+          <i class="bi bi-envelope"></i>
+          <span class="order-modal__msg-btn-text">
+            <span class="order-modal__msg-btn-main">Email</span>
+            <span class="order-modal__msg-btn-sub">sidelnikovairina002@gmail.com</span>
+          </span>
+        </a>
+      </div>
+
+      <button type="button" class="order-examples-trigger" id="openExamplesBtn">
+        <i class="bi bi-images"></i> View portfolio examples
+      </button>
+
+    </div>
+  </div>
 
   <!-- Portfolio Examples Modal -->
   <div class="order-modal" id="examplesModal">
@@ -586,56 +543,6 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <!-- Clarify Modal: shown instead of submitting, if the idea description is too short -->
-  <div class="order-modal" id="clarifyModal">
-    <div class="order-modal__dialog order-modal__dialog--sm">
-      <button class="order-modal__close" type="button" aria-label="Close" id="clarifyCloseBtn">✕</button>
-
-      <div class="order-modal__title">Tell me a bit more</div>
-      <div class="order-modal__text">
-        So I can sketch it out right away without follow-up questions in chat, please specify:
-      </div>
-
-      <ul class="order-clarify__list">
-        <li>Style — minimalism, realism, ornamental, sketch style, etc.</li>
-        <li>Where on the body the tattoo will be</li>
-        <li>Approximate size</li>
-      </ul>
-
-      <button type="button" class="order-form__submit" id="clarifyBackBtn">Okay, I'll add more</button>
-    </div>
-  </div>
-
-  <!-- Thanks Modal: shown after the request form is submitted, replaces the order modal -->
-  <div class="order-modal" id="thanksModal">
-    <div class="order-modal__dialog order-modal__dialog--sm">
-      <button class="order-modal__close" type="button" aria-label="Close">✕</button>
-
-      <div class="order-thanks">
-        <div class="order-thanks__icon">✓</div>
-        <div class="order-thanks__title">Request received!</div>
-        <div class="order-thanks__text">I have your idea. And one more thing, so I can reply to you:</div>
-
-        <div class="order-thanks__laststep">
-          <span class="order-thanks__badge">Last step</span>
-          <div class="order-thanks__instruction">Open the chat below and send <strong>“+”</strong></div>
-        </div>
-
-        <div class="order-thanks__icons">
-          <a class="order-thanks__icon-btn" href="https://instagram.com/irinasketches" target="_blank" rel="noopener" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a class="order-thanks__icon-btn" href="https://m.me/irinasketches" target="_blank" rel="noopener" aria-label="Facebook Messenger">
-            <i class="fab fa-facebook-messenger"></i>
-          </a>
-          <a class="order-thanks__icon-btn" href="mailto:sidelnikovairina002@gmail.com" rel="noopener" aria-label="Email">
-            <i class="bi bi-envelope"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -672,29 +579,47 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
     });
   </script>
 
-  <!-- Order Modal logic: open/close, messenger <-> form toggle, carousel, form submit -->
+  <!-- Order Modal logic: info popup -> messenger popup, examples carousel -->
   <script>
     (function () {
+      var infoModal = document.getElementById('infoModal');
       var orderModal = document.getElementById('orderModal');
-      var thanksModal = document.getElementById('thanksModal');
       var examplesModal = document.getElementById('examplesModal');
-      var clarifyModal = document.getElementById('clarifyModal');
       if (!orderModal) return;
 
-      var closeBtn = orderModal.querySelector('.order-modal__close');
       var triggers = document.querySelectorAll('.order-trigger');
-      var MIN_IDEA_LENGTH = 15;
-
-      function openModal(modal) {
-        modal.classList.add('open');
-        document.body.classList.add('modal-open');
-      }
 
       function closeModal(modal) {
         modal.classList.remove('open');
         // Only release scroll lock if no other modal is left open
         var anyOpen = document.querySelector('.order-modal.open');
         if (!anyOpen) document.body.classList.remove('modal-open');
+      }
+
+      // Guard against overlapping popups: e.g. a messenger button opens in a
+      // new tab and doesn't close this modal, so if the user comes back and
+      // triggers another popup, the old one could still be "open" underneath.
+      function closeAllModals(except) {
+        document.querySelectorAll('.order-modal.open').forEach(function (m) {
+          if (m !== except) m.classList.remove('open');
+        });
+      }
+
+      function openModal(modal) {
+        closeAllModals(modal);
+        modal.classList.add('open');
+        document.body.classList.add('modal-open');
+      }
+
+      // Entry point: every "order-trigger" opens the info popup first
+      function openInfoModal(e) {
+        if (e) e.preventDefault();
+        if (infoModal) openModal(infoModal);
+        else openModal(orderModal);
+      }
+
+      function closeInfoModal() {
+        if (infoModal) closeModal(infoModal);
       }
 
       function openOrderModal(e) {
@@ -706,14 +631,6 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
         closeModal(orderModal);
       }
 
-      function openThanksModal() {
-        openModal(thanksModal);
-      }
-
-      function closeThanksModal() {
-        closeModal(thanksModal);
-      }
-
       function openExamplesModal(e) {
         if (e) e.preventDefault();
         if (examplesModal) openModal(examplesModal);
@@ -723,29 +640,37 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
         if (examplesModal) closeModal(examplesModal);
       }
 
-      function openClarifyModal() {
-        if (clarifyModal) openModal(clarifyModal);
-      }
-
-      function closeClarifyModal() {
-        if (clarifyModal) closeModal(clarifyModal);
-      }
-
       triggers.forEach(function (t) {
-        t.addEventListener('click', openOrderModal);
+        t.addEventListener('click', openInfoModal);
       });
 
-      if (closeBtn) closeBtn.addEventListener('click', closeOrderModal);
+      var orderCloseBtn = orderModal.querySelector('.order-modal__close');
+      if (orderCloseBtn) orderCloseBtn.addEventListener('click', closeOrderModal);
 
       orderModal.addEventListener('click', function (e) {
         if (e.target === orderModal) closeOrderModal();
       });
 
-      if (thanksModal) {
-        var thanksCloseBtn = thanksModal.querySelector('.order-modal__close');
-        if (thanksCloseBtn) thanksCloseBtn.addEventListener('click', closeThanksModal);
-        thanksModal.addEventListener('click', function (e) {
-          if (e.target === thanksModal) closeThanksModal();
+      // Messenger buttons navigate away (new tab / mail app) but don't
+      // reload this page, so close the popup behind them right away.
+      orderModal.querySelectorAll('.order-modal__msg-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          closeOrderModal();
+        });
+      });
+
+      if (infoModal) {
+        var infoCloseBtn = document.getElementById('infoCloseBtn');
+        var infoContinueBtn = document.getElementById('infoContinueBtn');
+        if (infoCloseBtn) infoCloseBtn.addEventListener('click', closeInfoModal);
+        if (infoContinueBtn) {
+          infoContinueBtn.addEventListener('click', function () {
+            closeInfoModal();
+            openOrderModal();
+          });
+        }
+        infoModal.addEventListener('click', function (e) {
+          if (e.target === infoModal) closeInfoModal();
         });
       }
 
@@ -760,22 +685,11 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
         });
       }
 
-      if (clarifyModal) {
-        var clarifyCloseBtn = document.getElementById('clarifyCloseBtn');
-        var clarifyBackBtn = document.getElementById('clarifyBackBtn');
-        if (clarifyCloseBtn) clarifyCloseBtn.addEventListener('click', closeClarifyModal);
-        if (clarifyBackBtn) clarifyBackBtn.addEventListener('click', closeClarifyModal);
-        clarifyModal.addEventListener('click', function (e) {
-          if (e.target === clarifyModal) closeClarifyModal();
-        });
-      }
-
       document.addEventListener('keydown', function (e) {
         if (e.key !== 'Escape') return;
-        if (thanksModal && thanksModal.classList.contains('open')) closeThanksModal();
-        else if (examplesModal && examplesModal.classList.contains('open')) closeExamplesModal();
-        else if (clarifyModal && clarifyModal.classList.contains('open')) closeClarifyModal();
+        if (examplesModal && examplesModal.classList.contains('open')) closeExamplesModal();
         else if (orderModal.classList.contains('open')) closeOrderModal();
+        else if (infoModal && infoModal.classList.contains('open')) closeInfoModal();
       });
 
       // Carousel arrows
@@ -790,70 +704,6 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
           track.scrollBy({ left: dir * itemWidth, behavior: 'smooth' });
         });
       });
-
-      // --- Telegram delivery for the request form ---
-      // NOTE: this is a static, backend-less page, so the bot credentials below
-      // are decoded in the browser right before the request is sent. Base64 is
-      // NOT encryption — anyone who opens devtools/view-source can still recover
-      // the token in seconds. This only stops the token from being plainly
-      // readable at a glance / grep-able in the raw HTML. For a real production
-      // site, move this call to a small serverless function (Cloudflare Worker,
-      // Vercel/Netlify function, etc.) and keep the token there instead.
-      var TG_T1 = 'ODI1OTM2OTcxMjpBQUdXNi1hUThOdzdmRG5qQld1RkRXSVJuT1JMOGRaMnpzTQ==';
-      var TG_C1 = 'MTA3NjUxMjI3NQ==';
-
-      function tgToken() { return atob(TG_T1); }
-      function tgChatId() { return atob(TG_C1); }
-
-      function sendToTelegram(text) {
-        var url = 'https://api.telegram.org/bot' + tgToken() + '/sendMessage';
-        return fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: tgChatId(), text: text })
-        });
-      }
-
-      // Request form submit
-      var form = document.getElementById('orderRequestForm');
-      if (form) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-
-          var name = document.getElementById('orderName').value.trim();
-          var idea = document.getElementById('orderIdea').value.trim();
-          var submitBtn = form.querySelector('.order-form__submit');
-
-          // If the idea description is too short, ask for more detail instead of sending.
-          if (idea.length < MIN_IDEA_LENGTH) {
-            openClarifyModal();
-            return;
-          }
-
-          var message = 'New sketch request\nName: ' + name + '\nIdea: ' + idea;
-
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-          }
-
-          sendToTelegram(message)
-            .catch(function (err) {
-              // Even if delivery fails, don't strand the user: still walk them
-              // to the final step so they can reach out directly.
-              console.error('Telegram delivery failed:', err);
-            })
-            .finally(function () {
-              if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send request';
-              }
-              form.reset();
-              closeOrderModal();
-              openThanksModal();
-            });
-        });
-      }
     })();
   </script>
 
