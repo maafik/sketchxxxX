@@ -95,7 +95,7 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
       </nav>
 
       <div class="header-social-links">
-        <a href="https://instagram.com/sketchs.master" class="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://instagram.com/irinasketches" class="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://m.me/irinasketches" class="messenger" target="_blank" rel="noopener" aria-label="Facebook Messenger"><i class="fab fa-facebook-messenger"></i></a>
         <a href="mailto:sidelnikovairina002@gmail.com" class="email" rel="noopener" aria-label="Email"><i class="bi bi-envelope"></i></a>
       </div>
@@ -423,7 +423,7 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
         <p>© <span>Sidennikova I.S.</span> <strong class="px-1 sitename">sketch-tattoo</strong> <span>All rights reserved</span></p>
       </div>
       <div class="social-links d-flex justify-content-center">
-        <a href="https://instagram.com/sketchs.master" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://instagram.com/irinasketches" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://m.me/irinasketches" target="_blank" rel="noopener" aria-label="Facebook Messenger"><i class="fab fa-facebook-messenger"></i></a>
         <a href="mailto:sidelnikovairina002@gmail.com" rel="noopener" aria-label="Email"><i class="bi bi-envelope"></i></a>
       </div>
@@ -468,7 +468,7 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
       </div>
 
       <div class="order-modal__msg-list">
-        <a class="order-modal__dark-btn order-modal__msg-btn" href="https://instagram.com/sketchs.master" target="_blank" rel="noopener">
+        <a class="order-modal__dark-btn order-modal__msg-btn" href="https://instagram.com/irinasketches" target="_blank" rel="noopener">
           <i class="fab fa-instagram"></i>
           <span class="order-modal__msg-btn-text">
             <span class="order-modal__msg-btn-main">Instagram</span>
@@ -631,9 +631,14 @@ src="https://www.facebook.com/tr?id=2483305172192055&ev=PageView&noscript=1"
         closeModal(orderModal);
       }
 
+      // Portfolio examples popup stacks on TOP of the order modal instead of
+      // replacing it, so closing the portfolio popup only closes itself and
+      // leaves the order modal open behind it.
       function openExamplesModal(e) {
         if (e) e.preventDefault();
-        if (examplesModal) openModal(examplesModal);
+        if (!examplesModal) return;
+        examplesModal.classList.add('open');
+        document.body.classList.add('modal-open');
       }
 
       function closeExamplesModal() {
